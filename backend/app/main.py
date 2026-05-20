@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.v1 import auth
+from app.api.v1 import auth, coins, favorites, alerts
 
 app = FastAPI(title="CryptoHub API", version="1.0.0")
 
@@ -14,6 +14,9 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix="/api/v1")
+app.include_router(coins.router, prefix="/api/v1")
+app.include_router(favorites.router, prefix="/api/v1")
+app.include_router(alerts.router, prefix="/api/v1")
 
 
 @app.get("/health")
