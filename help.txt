@@ -1,0 +1,12 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+docker run -d --name cryptohub-redis -p 6379:6379 redis:7-alpine
+uvicorn app.main:app --reload
+
+T1:
+celery -A app.tasks.celery_app worker --loglevel=info --pool=solo
+
+T2:
+celery -A app.tasks.celery_app beat --loglevel=info
+
+T3:
+celery -A app.tasks.celery_app flower --port=5555
