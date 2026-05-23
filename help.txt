@@ -10,3 +10,24 @@ celery -A app.tasks.celery_app beat --loglevel=info
 
 T3:
 celery -A app.tasks.celery_app flower --port=5555
+
+
+Start app:
+T1 - FastAPI:
+cd cryptohub/backend
+venv\Scripts\activate
+uvicorn app.main:app --reload
+
+T2 - celery worker:
+cd cryptohub/backend
+venv\Scripts\activate
+celery -A app.tasks.celery_app worker --loglevel=info --pool=solo
+
+T3 - Celery beat:
+cd cryptohub/backend
+venv\Scripts\activate
+celery -A app.tasks.celery_app beat --loglevel=info
+
+T4 - Run frontend:
+cd cryptohub/frontend
+npm run dev
