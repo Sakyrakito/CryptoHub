@@ -31,3 +31,18 @@ celery -A app.tasks.celery_app beat --loglevel=info
 T4 - Run frontend:
 cd cryptohub/frontend
 npm run dev
+
+
+Docker-compose:
+# запустить в фоне
+docker-compose up -d --build
+
+# остановить
+docker-compose down
+
+# посмотреть логи
+docker-compose logs -f backend
+docker-compose logs -f celery-worker
+
+# пересобрать один сервис
+docker-compose up -d --build backend

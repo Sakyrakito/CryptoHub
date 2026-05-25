@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CoinDetail from "./pages/CoinDetail";
 import Favorites from "./pages/Favorites";
+import Alerts from "./pages/Alerts";
 
 export default function App() {
   return (
@@ -24,6 +25,12 @@ export default function App() {
                 <ProtectedRoute>
                   <Favorites />
                 </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/alerts"
+              element={
+                <ProtectedRoute><Alerts /></ProtectedRoute>
               }
             />
             <Route path="*" element={<Navigate to="/" />} />
