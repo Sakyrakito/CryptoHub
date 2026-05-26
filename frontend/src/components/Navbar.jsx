@@ -24,10 +24,11 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
-        🪙 CryptoHub
+        CryptoHub
       </Link>
       <div className="navbar-links">
         <Link to="/">Рынок</Link>
+        <Link to="/converter">Конвертер</Link>
         {token && <Link to="/favorites">Избранное</Link>}
         {token && (
           <Link to="/alerts" className="navbar-alerts-link">

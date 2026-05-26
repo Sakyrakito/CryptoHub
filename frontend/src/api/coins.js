@@ -23,3 +23,10 @@ export const getAlerts = () => api.get("/alerts");
 export const createAlert = (data) => api.post("/alerts", data);
 
 export const deleteAlert = (alertId) => api.delete(`/alerts/${alertId}`);
+
+export const convertCurrency = (from_id, to_id, amount) =>
+  api.get("/converter/convert", { params: { from_id, to_id, amount } });
+
+export const getPopularCoins = () => api.get("/converter/popular-coins");
+
+export const getFiatList = () => api.get("/converter/fiat-list");

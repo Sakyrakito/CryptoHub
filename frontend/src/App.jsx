@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import CoinDetail from "./pages/CoinDetail";
 import Favorites from "./pages/Favorites";
 import Alerts from "./pages/Alerts";
+import Converter from "./pages/Converter";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/coin/:coinId" element={<CoinDetail />} />
+            <Route path="/converter" element={<Converter />} />
             <Route
               path="/favorites"
               element={

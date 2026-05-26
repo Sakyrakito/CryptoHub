@@ -179,5 +179,76 @@ body { background: var(--bg); color: var(--text); font-family: Inter, sans-serif
   min-width: 18px; text-align: center;
 }
 
+/* Converter */
+.converter-header { display: flex; flex-direction: column; gap: 8px; }
+.converter-subtitle { color: var(--text-muted); font-size: 15px; }
+
+.converter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.converter-field { display: flex; flex-direction: column; gap: 8px; }
+.converter-input-row { display: flex; gap: 12px; }
+
+.converter-amount {
+  width: 160px;
+  font-size: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.converter-select { flex: 1; font-size: 14px; cursor: pointer; }
+
+.converter-result-box {
+  width: 160px; flex-shrink: 0;
+  padding: 10px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+}
+.converter-loading { color: var(--text-muted); font-size: 16px; }
+.converter-placeholder { color: var(--text-muted); }
+
+.converter-swap { display: flex; justify-content: center; }
+.swap-btn {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.swap-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.converter-rate {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 8px;
+  background: var(--bg-input);
+  border-radius: 8px;
+}
+
+.converter-quick {
+  display: flex; align-items: center;
+  gap: 8px; flex-wrap: wrap;
+  max-width: 600px;
+}
+.quick-btn { padding: 6px 14px; font-size: 14px; }
+.quick-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
 /* Misc */
 .loading { text-align: center; padding: 60px; color: var(--text-muted); }
