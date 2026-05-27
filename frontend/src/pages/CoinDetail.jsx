@@ -163,6 +163,7 @@ export default function CoinDetail() {
                 axisLine={false}
                 tickFormatter={(v) => `$${v.toLocaleString()}`}
                 width={90}
+                domain={["auto", "auto"]}
               />
               <Tooltip
                 contentStyle={{ background: "#1a1d2e", border: "1px solid #2d3055" }}

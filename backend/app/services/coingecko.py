@@ -109,5 +109,5 @@ async def get_coin_price(coin_ids: list[str]) -> dict:
             "include_24hr_change": True,
         },
     )
-    await cache_set(cache_key, data, ttl=30)
+    await cache_set(cache_key, data, ttl=60)
     return data

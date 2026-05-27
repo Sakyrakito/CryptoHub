@@ -30,3 +30,10 @@ export const convertCurrency = (from_id, to_id, amount) =>
 export const getPopularCoins = () => api.get("/converter/popular-coins");
 
 export const getFiatList = () => api.get("/converter/fiat-list");
+
+export const getPortfolio = () => api.get("/portfolio");
+
+export const addPortfolioAsset = (data) => api.post("/portfolio/assets", data);
+
+export const removePortfolioAsset = (coinId) =>
+  api.delete(`/portfolio/assets/${coinId}`);

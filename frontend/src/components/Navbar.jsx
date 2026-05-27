@@ -30,6 +30,7 @@ export default function Navbar() {
         <Link to="/">Рынок</Link>
         <Link to="/converter">Конвертер</Link>
         {token && <Link to="/favorites">Избранное</Link>}
+        {token && <Link to="/portfolio">Портфель</Link>}
         {token && (
           <Link to="/alerts" className="navbar-alerts-link">
             Уведомления

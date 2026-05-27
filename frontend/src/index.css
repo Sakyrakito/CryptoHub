@@ -250,5 +250,53 @@ body { background: var(--bg); color: var(--text); font-family: Inter, sans-serif
 .quick-btn { padding: 6px 14px; font-size: 14px; }
 .quick-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
+/* Portfolio */
+.portfolio-total {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+}
+.portfolio-total-label { font-size: 14px; color: var(--text-muted); }
+.portfolio-total-value { font-size: 36px; font-weight: 700; color: var(--primary); }
+
+.portfolio-table {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.portfolio-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 80px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+.portfolio-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 80px;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.portfolio-row:last-child { border-bottom: none; }
+.portfolio-row:hover { background: var(--bg-input); }
+.portfolio-coin { display: flex; flex-direction: column; gap: 2px; }
+.portfolio-coin-name { font-size: 13px; color: var(--text-muted); }
+.portfolio-amount { font-size: 14px; }
+.portfolio-price { font-size: 14px; }
+.portfolio-value { font-size: 14px; font-weight: 600; }
+.portfolio-change { font-size: 13px; }
+
 /* Misc */
 .loading { text-align: center; padding: 60px; color: var(--text-muted); }
