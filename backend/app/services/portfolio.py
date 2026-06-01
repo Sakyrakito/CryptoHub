@@ -58,7 +58,7 @@ async def get_portfolio(db: AsyncSession, user_id: int) -> PortfolioResponse:
             amount=amount,
             current_price=current_price,
             total_value=total,
-            change_24h=change_24h,
+            change_24h=change_24h
         ))
 
     return PortfolioResponse(assets=asset_list, total_value=total_value)
@@ -70,12 +70,12 @@ async def add_or_update_asset(
     coin_id: str,
     coin_symbol: str,
     coin_name: str,
-    amount: float,
+    amount: float
 ) -> PortfolioAsset:
     result = await db.execute(
         select(PortfolioAsset).where(
             PortfolioAsset.portfolio_id == portfolio_id,
-            PortfolioAsset.coin_id == coin_id,
+            PortfolioAsset.coin_id == coin_id
         )
     )
     existing = result.scalar_one_or_none()
@@ -91,7 +91,7 @@ async def add_or_update_asset(
         coin_id=coin_id,
         coin_symbol=coin_symbol,
         coin_name=coin_name,
-        amount=Decimal(str(amount)),
+        amount=Decimal(str(amount))
     )
     db.add(asset)
     await db.flush()
@@ -102,12 +102,13 @@ async def add_or_update_asset(
 async def delete_asset(
     db: AsyncSession,
     portfolio_id: int,
-    coin_id: str,
+    coin_id: str
 ) -> bool:
     result = await db.execute(
-        delete(PortfolioAsset).where(
+        delete(PortfolioAsset)
+        .where(
             PortfolioAsset.portfolio_id == portfolio_id,
-            PortfolioAsset.coin_id == coin_id,
+            PortfolioAsset.coin_id == coin_id
         )
     )
     return result.rowcount > 0

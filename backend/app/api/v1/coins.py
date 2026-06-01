@@ -14,7 +14,7 @@ router = APIRouter(prefix="/coins", tags=["coins"])
 @router.get("/top")
 async def top_coins(
     page: int = Query(1, ge=1),
-    per_page: int = Query(50, ge=1, le=250),
+    per_page: int = Query(100, ge=1, le=250),
 ):
     try:
         return await get_top_coins(page=page, per_page=per_page)

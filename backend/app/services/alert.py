@@ -16,7 +16,8 @@ async def get_alerts(db: AsyncSession, user_id: int) -> list[Alert]:
 
 async def get_alert_by_id(db: AsyncSession, alert_id: int, user_id: int) -> Alert | None:
     result = await db.execute(
-        select(Alert).where(Alert.id == alert_id, Alert.user_id == user_id)
+        select(Alert)
+        .where(Alert.id == alert_id, Alert.user_id == user_id)
     )
     return result.scalar_one_or_none()
 
@@ -27,14 +28,14 @@ async def create_alert(
     coin_id: str,
     coin_symbol: str,
     target_price: Decimal,
-    direction: AlertDirection,
+    direction: AlertDirection
 ) -> Alert:
     alert = Alert(
         user_id=user_id,
         coin_id=coin_id,
         coin_symbol=coin_symbol,
         target_price=target_price,
-        direction=direction,
+        direction=direction
     )
     db.add(alert)
     await db.flush()
@@ -61,7 +62,7 @@ async def get_alert_history(db: AsyncSession, user_id: int) -> list[AlertHistory
 
 
 async def get_all_active_alerts(db: AsyncSession) -> list[Alert]:
-    """Используется Celery для проверки цен."""
+    # Используется Celery для проверки цен.
     result = await db.execute(
         select(Alert).where(Alert.is_active == True)
     )

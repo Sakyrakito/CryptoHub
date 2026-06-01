@@ -19,7 +19,7 @@ async def create_user(db: AsyncSession, email: str, username: str, password: str
     user = User(
         email=email,
         username=username,
-        hashed_password=hash_password(password),
+        hashed_password=hash_password(password)
     )
     db.add(user)
     await db.flush()   # получаем id без коммита

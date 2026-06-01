@@ -24,7 +24,7 @@ async def add_favorite(
         user_id=user_id,
         coin_id=coin_id,
         coin_symbol=coin_symbol,
-        coin_name=coin_name,
+        coin_name=coin_name
     )
     db.add(favorite)
     await db.flush()
@@ -44,7 +44,7 @@ async def is_favorite(db: AsyncSession, user_id: int, coin_id: str) -> bool:
     result = await db.execute(
         select(Favorite).where(
             Favorite.user_id == user_id,
-            Favorite.coin_id == coin_id,
+            Favorite.coin_id == coin_id
         )
     )
     return result.scalar_one_or_none() is not None

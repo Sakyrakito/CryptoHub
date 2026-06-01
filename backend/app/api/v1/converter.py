@@ -79,7 +79,7 @@ async def convert(
             prices = data
 
         def get_price_in_usd(currency_id: str) -> float:
-            """Возвращает стоимость 1 единицы валюты в USD."""
+            # Возвращает стоимость 1 единицы валюты в USD.
             if currency_id == "usd":
                 return 1.0
             if currency_id in fiat_codes:
@@ -95,7 +95,7 @@ async def convert(
             raise HTTPException(status_code=404, detail=f"Монета не найдена: {currency_id}")
 
         def get_price_in_fiat(currency_id: str, fiat: str) -> float:
-            """Возвращает стоимость 1 единицы валюты в указанном фиате."""
+            # Возвращает стоимость 1 единицы валюты в указанном фиате.
             if currency_id in fiat_codes:
                 from_usd = get_price_in_usd(currency_id)
                 to_usd = get_price_in_usd(fiat) if fiat != "usd" else 1.0

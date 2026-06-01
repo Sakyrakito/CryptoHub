@@ -40,31 +40,31 @@
 
 ### 1. Клонируй репозиторий
 
-\`\`\`bash
+```bash
 git clone https://github.com/Sakyrakito/cryptohub.git
 cd cryptohub
-\`\`\`
+```
 
 ### 2. Создай файл окружения
 
-\`\`\`bash
+```bash
 cp backend/.env.example backend/.env
-\`\`\`
+```
 
 Открой `backend/.env` и заполни:
 
-\`\`\`env
+```env
 DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/cryptohub
 REDIS_URL=redis://redis:6379/0
 SECRET_KEY=your-secret-key-here
 COINGECKO_API_KEY=your-api-key  # получить на coingecko.com/api
-\`\`\`
+```
 
 ### 3. Запусти проект
 
-\`\`\`bash
+```bash
 docker-compose up --build
-\`\`\`
+```
 
 ### 4. Открой в браузере
 
@@ -76,7 +76,7 @@ docker-compose up --build
 
 ## Структура проекта
 
-\`\`\`
+```
 cryptohub/
 ├── backend/
 │   ├── app/
@@ -100,7 +100,7 @@ cryptohub/
 │   └── package.json
 ├── docker-compose.yml
 └── README.md
-\`\`\`
+```
 
 ## API эндпоинты
 
@@ -150,7 +150,7 @@ cryptohub/
 
 ## Архитектура
 
-\`\`\`
+```
 React Frontend (5173)
         ↓ HTTP
 FastAPI Backend (8000)
@@ -161,7 +161,7 @@ PostgreSQL    Redis
           Celery Worker
                 ↓
           CoinGecko API
-\`\`\`
+```
 
 ## Автор
 
